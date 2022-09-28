@@ -20,5 +20,5 @@ code from:  http://chacha20.insanecoding.org/
 
 SHA-3 is a subset of the broader cryptographic primitive family Keccak, designed by Guido Bertoni, Joan Daemen, Michaël Peeters, and Gilles Van Assche, building upon RadioGatún.
 The implementation presented in this repository focuses on size and readability of the FIPS 202 and SHA3 hash function. Tests are included in sha3-test. Source code from:
-https://github.com/Rhizomatica/tiny_sha3
+https://github.com/mjosaarinen/tiny_sha3
 
