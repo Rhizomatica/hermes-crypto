@@ -17,7 +17,7 @@ This implementation is intended to be simple, many optimizations can be performe
 */
 
 #include <string.h>
-#include "chacha20_simple.h"
+#include "chacha20.h"
 
 void chacha20_setup(chacha20_ctx *ctx, const uint8_t *key, size_t length, uint8_t nonce[8])
 {

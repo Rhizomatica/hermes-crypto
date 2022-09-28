@@ -8,17 +8,29 @@ CC=gcc
 CFLAGS=-Wall -O3 -I.
 LDFLAGS=-s
 
-all: chacha20_simple-test
+all: chacha20-test sha3-test
 
-chacha20_simple.o: chacha20_simple.c
-	$(CC) $(CFLAGS) -o chacha20_simple.o -c chacha20_simple.c
+chacha20.o: chacha20.c
+	$(CC) $(CFLAGS) -o chacha20.o -c chacha20.c
 
-chacha20_simple-test.o: chacha20_simple-test.c
-	$(CC) $(CFLAGS) -o chacha20_simple-test.o -c chacha20_simple-test.c
+chacha20-test.o: chacha20-test.c
+	$(CC) $(CFLAGS) -o chacha20-test.o -c chacha20-test.c
 
-chacha20_simple-test: chacha20_simple-test.o chacha20_simple.o
-	$(CC) -o chacha20_simple-test chacha20_simple-test.o chacha20_simple.o $(LDFLAGS)
+chacha20-test: chacha20-test.o chacha20.o
+	$(CC) -o chacha20-test chacha20-test.o chacha20.o $(LDFLAGS)
+
+
+sha3.o: sha3.c
+	$(CC) $(CFLAGS) -o sha3.o -c sha3.c
+
+sha3-test.o: sha3-test.c
+	$(CC) $(CFLAGS) -o sha3-test.o -c sha3-test.c
+
+sha3-test: sha3-test.o sha3.o
+	$(CC) -o sha3-test sha3-test.o sha3.o $(LDFLAGS)
+
+
 
 .PHONY: clean
 clean:
-	rm -f chacha20_simple-test chacha20_simple.o chacha20_simple-test.o
+	rm -f chacha20-test chacha20.o chacha20-test.o sha3-test sha3.o sha3-test.o

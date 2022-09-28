@@ -25,7 +25,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <alloca.h>
 #endif
 
-#include <chacha20_simple.h> //Replace with header to another library if you want to test something else
+#include <chacha20.h> //Replace with header to another library if you want to test something else
 
 #ifndef MIN
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
