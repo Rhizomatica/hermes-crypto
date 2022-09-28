@@ -5,7 +5,7 @@ This project contains the security layer of the HERMES stack.
 This is a work in progress.
 
 Proposal:  Each HERMES station contains a 256 bit ChaCha20 key. The authentication
-hand-shake is a SHA-3 of the station key.
+hand-shake involves a comparisson between the SHA-3 hash of ChaCha20 key.
 
 # What is here
 
