@@ -14,18 +14,13 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 
-#define __USE_MINGW_ANSI_STDIO 1
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
-#ifdef __WIN32__
-#include <malloc.h>
-#elif defined(__linux__) || defined(__sun__)
 #include <alloca.h>
-#endif
 
-#include <chacha20.h> //Replace with header to another library if you want to test something else
+#include "chacha20.h" //Replace with header to another library if you want to test something else
 
 #ifndef MIN
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))

@@ -5,10 +5,10 @@
 # @version 0.1
 
 CC=gcc
-CFLAGS=-Wall -O3 -I.
+CFLAGS=-Wall -O3
 LDFLAGS=-s
 
-all: chacha20-test sha3-test
+all: chacha20-test sha3-test hermes-crypto
 
 chacha20.o: chacha20.c
 	$(CC) $(CFLAGS) -o chacha20.o -c chacha20.c
@@ -30,7 +30,12 @@ sha3-test: sha3-test.o sha3.o
 	$(CC) -o sha3-test sha3-test.o sha3.o $(LDFLAGS)
 
 
+hermes-crypto.o: hermes-crypto.c
+	$(CC) $(CFLAGS) -o hermes-crypto.o -c hermes-crypto.c
+
+hermes-crypto: hermes-crypto.o sha3.o chacha20.o
+	$(CC) -o hermes-crypto hermes-crypto.o sha3.o chacha20.o $(LDFLAGS)
 
 .PHONY: clean
 clean:
-	rm -f chacha20-test chacha20.o chacha20-test.o sha3-test sha3.o sha3-test.o
+	rm -f chacha20-test chacha20.o chacha20-test.o sha3-test sha3.o sha3-test.o hermes-crypto hermes-crypto.o
