@@ -34,6 +34,43 @@ ACK
 
 The 256-bit ChaCha20 key SK = SK1 + SK2
 
+# Proposal 2
+
+Total T/R switches: 2
+Total payload in success: 96 + 96: 192 bytes 
+
+
+Each host has
+- 1x X25519 Priv. key (32 bytes)
+- Nx X25519 Pub. key (32 bytes)
+- (N-1)x X25519 Shared secrets (32 bytes)
+- 1x ED25519 Priv. key (64 bytes)
+- Nx ED25519 Pub. key (32 bytes)
+
+STEP 1. Agent 1 sends (96 bytes):
+Encrypted Pub1 key (32 bytes) + signature (64 bytes)
+
+STEP 2. Agent 2 responds (96 bytes):
+CLOSES CONNECTION if fail or
+Encrypted Pub2 key (32 bytes) + signature (64 bytes)
+ps: here agent 2 will already have the Shared Key for ChaCha20
+
+STEP 3. Agent 1 verifies the data and connection is established
+ps: Agent 1 creates Shared Key for ChaCha20
+
+
+
+signature:
+#define ED25519_PUBLIC_KEY_SIZE (32)
+#define ED25519_PRIVATE_KEY_SIZE (64)
+#define ED25519_SIGNATURE_SIZE (64)
+
+
+#define X25519_KEY_SIZE (32)
+#define X25519_SHARED_SIZE (32)
+
+The 256-bit ChaCha20 key = compact_x25519_derive_encryption_key ()
+
 # What is here
 
 ## ChaCha20
