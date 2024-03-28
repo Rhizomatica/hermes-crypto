@@ -12,7 +12,7 @@ Uses ChaCha20 and SHA-3. Robust to replay attack.
 Total T/R switches: 3
 Total payload in success: 32 + 35 + 19 + 3: 89 bytes 
 
-Proposal Each HERMES remove station contains a 128-bit key. All keys of the remote stations are available in the gateway. The authentication
+Proposal: Each HERMES remote station contains a 128-bit key. All keys of the remote stations are available in the gateway. The authentication
 hand-shake involves SHA-3, ChaCha20 and the creation of a session key (SK).
 
 
